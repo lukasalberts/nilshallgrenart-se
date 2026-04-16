@@ -1,30 +1,30 @@
 const artworks = [
-    { src: "images/verk-01.jpg", title: "Springande grönska" },
-    { src: "images/verk-02.jpg", title: "Filosofisk kinesisk 8:a i rörelse" },
-    { src: "images/verk-03.jpg", title: "Danskt stjärnspel" },
-    { src: "images/verk-04.jpg", title: "Påsk på Österlen" },
-    { src: "images/verk-05.jpg", title: "Ilska, hat och kärlek" },
-    { src: "images/verk-06.jpg", title: "Norrsken" },
-    { src: "images/verk-07.jpg", title: "Oändliga vägar" },
-    { src: "images/verk-08.jpg", title: "Nyansernas tid" },
-    { src: "images/verk-09.jpg", title: "Strömmande själafloden" },
-    { src: "images/verk-10.jpg", title: "Lycklighetens taggar" },
-    { src: "images/verk-11.jpg", title: "Färggranna blodkroppar" },
-    { src: "images/verk-12.jpg", title: "Blodshimmel" },
-    { src: "images/verk-13.jpg", title: "Sorgsen ursinnighet" },
-    { src: "images/verk-14.jpg", title: "Skimrande melankoli" },
-    { src: "images/verk-15.jpg", title: "Marina rörelser" },
-    { src: "images/verk-16.jpg", title: "Kryssets biverkningar" },
-    { src: "images/verk-17.jpg", title: "Solnedgången till Johanna" }
+    { thumb: "images/thumb/verk-01.webp", full: "images/verk-01.webp", title: "Springande grönska" },
+    { thumb: "images/thumb/verk-02.webp", full: "images/verk-02.webp", title: "Filosofisk kinesisk 8:a i rörelse" },
+    { thumb: "images/thumb/verk-03.webp", full: "images/verk-03.webp", title: "Danskt stjärnspel" },
+    { thumb: "images/thumb/verk-04.webp", full: "images/verk-04.webp", title: "Påsk på Österlen" },
+    { thumb: "images/thumb/verk-05.webp", full: "images/verk-05.webp", title: "Ilska, hat och kärlek" },
+    { thumb: "images/thumb/verk-06.webp", full: "images/verk-06.webp", title: "Norrsken" },
+    { thumb: "images/thumb/verk-07.webp", full: "images/verk-07.webp", title: "Oändliga vägar" },
+    { thumb: "images/thumb/verk-08.webp", full: "images/verk-08.webp", title: "Nyansernas tid" },
+    { thumb: "images/thumb/verk-09.webp", full: "images/verk-09.webp", title: "Strömmande själafloden" },
+    { thumb: "images/thumb/verk-10.webp", full: "images/verk-10.webp", title: "Lycklighetens taggar" },
+    { thumb: "images/thumb/verk-11.webp", full: "images/verk-11.webp", title: "Färggranna blodkroppar" },
+    { thumb: "images/thumb/verk-12.webp", full: "images/verk-12.webp", title: "Blodshimmel" },
+    { thumb: "images/thumb/verk-13.webp", full: "images/verk-13.webp", title: "Sorgsen ursinnighet" },
+    { thumb: "images/thumb/verk-14.webp", full: "images/verk-14.webp", title: "Skimrande melankoli" },
+    { thumb: "images/thumb/verk-15.webp", full: "images/verk-15.webp", title: "Marina rörelser" },
+    { thumb: "images/thumb/verk-16.webp", full: "images/verk-16.webp", title: "Kryssets biverkningar" },
+    { thumb: "images/thumb/verk-17.webp", full: "images/verk-17.webp", title: "Solnedgången till Johanna" }
 ];
 
 // Hero background — use a random artwork
 const heroImg = new Image();
 const heroIdx = Math.floor(Math.random() * artworks.length);
 heroImg.onload = () => {
-    document.getElementById("hero-bg").style.backgroundImage = `url(${artworks[heroIdx].src})`;
+    document.getElementById("hero-bg").style.backgroundImage = `url(${artworks[heroIdx].full})`;
 };
-heroImg.src = artworks[heroIdx].src;
+heroImg.src = artworks[heroIdx].full;
 
 // Subtle parallax on hero
 window.addEventListener("scroll", () => {
@@ -47,7 +47,7 @@ artworks.forEach((art, i) => {
     const item = document.createElement("div");
     item.className = "gallery-item";
     item.innerHTML = `
-        <img src="${art.src}" alt="${art.title}" loading="lazy">
+        <img src="${art.thumb}" alt="${art.title}" loading="lazy">
         <div class="item-overlay">
             <p class="item-title">${art.title}</p>
         </div>
@@ -102,7 +102,7 @@ function closeLightbox() {
 
 function updateLightbox() {
     const art = artworks[currentIndex];
-    lightboxImg.src = art.src;
+    lightboxImg.src = art.full;
     lightboxImg.alt = art.title;
     lightboxTitle.textContent = art.title;
 }
