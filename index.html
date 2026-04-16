@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nils Hallgren — Konstverk</title>
+    <meta name="description" content="Portfolio med konstverk av Nils Hallgren.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Nils Hallgren</h1>
+        <p class="subtitle">Konstverk</p>
+    </header>
+
+    <main class="gallery" id="gallery">
+    </main>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Stäng">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Föregående">&#8249;</button>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Nästa">&#8250;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <p class="lightbox-title" id="lightbox-title"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Vid intresse, kontakta Nils Hallgren</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
