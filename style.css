@@ -397,6 +397,27 @@ nav.scrolled {
     letter-spacing: 0.03em;
 }
 
+.gallery-item .item-sold {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover .item-sold {
+    opacity: 1;
+}
+
 /* ======= ABOUT ======= */
 .about {
     padding: 8rem 2rem;
@@ -616,6 +637,7 @@ footer {
     .gallery { columns: 2; column-gap: 1rem; }
     .gallery-item { margin-bottom: 1rem; }
     .gallery-item .item-overlay { opacity: 1; }
+    .gallery-item .item-sold { opacity: 0.6; }
     .gallery-item { padding: 0.4rem; }
 
     .about { padding: 5rem 1.5rem; }

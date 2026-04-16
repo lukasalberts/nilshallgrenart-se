@@ -50,6 +50,7 @@ artworks.forEach((art, i) => {
         <img src="${art.thumb}" alt="${art.title}" loading="lazy">
         <div class="item-overlay">
             <p class="item-title">${art.title}</p>
+            <span class="item-sold">Såld</span>
         </div>
     `;
     item.addEventListener("click", () => openLightbox(i));
