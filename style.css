@@ -394,24 +394,13 @@ nav.scrolled {
     margin-bottom: 1rem;
 }
 
-.about-collage {
+.about-portrait {
     position: relative;
-    height: 500px;
 }
 
-.collage-1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 65%;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-}
-
-.collage-2 {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 55%;
+.about-portrait img {
+    width: 100%;
+    display: block;
     box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 
@@ -599,9 +588,7 @@ footer {
         gap: 3rem;
     }
 
-    .about-collage { height: 350px; }
-    .collage-1 { width: 60%; }
-    .collage-2 { width: 50%; }
+    .about-portrait { max-width: 400px; margin: 0 auto; }
 
     .contact { padding: 5rem 1.5rem; }
 
@@ -618,7 +605,7 @@ footer {
 
     .gallery { columns: 1; max-width: 500px; }
 
-    .about-collage { height: 280px; }
+    .about-portrait { max-width: 350px; }
 
     .contact-link { font-size: 1rem; padding: 0.9rem 2rem; }
 
