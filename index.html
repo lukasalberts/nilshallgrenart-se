@@ -4,22 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nils Hallgren — Konstverk</title>
-    <meta name="description" content="Portfolio med konstverk av Nils Hallgren.">
+    <meta name="description" content="Utforska konstverk av Nils Hallgren. Målningar fyllda med känsla, färg och rörelse.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Nils Hallgren</h1>
-        <p class="subtitle">Konstverk</p>
-    </header>
+    <!-- Navigation -->
+    <nav id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">NH</a>
+            <div class="nav-links">
+                <a href="#verk">Verk</a>
+                <a href="#om">Om</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+        </div>
+    </nav>
 
-    <main class="gallery" id="gallery">
-    </main>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-bg" id="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-pre">Konstverk av</p>
+            <h1 class="hero-title">Nils Hallgren</h1>
+            <div class="hero-line"></div>
+            <p class="hero-tagline">Färg, känsla och rörelse på duk</p>
+            <a href="#verk" class="hero-cta">Utforska verken</a>
+        </div>
+    </section>
 
+    <!-- Featured piece -->
+    <section class="featured" id="featured">
+        <div class="featured-inner reveal">
+            <div class="featured-image">
+                <img src="images/verk-06.jpg" alt="Norrsken">
+            </div>
+            <div class="featured-text">
+                <p class="section-label">Utvalt verk</p>
+                <h2 class="featured-title">&ldquo;Norrsken&rdquo;</h2>
+                <p class="featured-desc">Varje målning börjar med en känsla — en impuls av färg som vill ta form. Nils arbete rör sig mellan det abstrakta och det känslomässiga, där penseldragen får tala sitt eget språk.</p>
+                <a href="#verk" class="text-link">Se alla verk &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section" id="verk">
+        <div class="section-header reveal">
+            <p class="section-label">Samling</p>
+            <h2 class="section-title">Alla verk</h2>
+        </div>
+        <div class="gallery" id="gallery"></div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="om">
+        <div class="about-inner reveal">
+            <div class="about-text">
+                <p class="section-label">Om konstnären</p>
+                <h2 class="section-title">Nils Hallgren</h2>
+                <p>Nils Hallgren uttrycker sig genom färg och form. Hans målningar utforskar känslolandskap — från stilla melankoli till exploderande energi. Varje verk är en berättelse som betraktaren själv får tolka.</p>
+                <p>Med titlar som <em>&ldquo;Ilska, hat och kärlek&rdquo;</em> och <em>&ldquo;Strömmande själafloden&rdquo;</em> inbjuds besökaren till en resa genom det inre.</p>
+            </div>
+            <div class="about-visual">
+                <div class="about-collage">
+                    <img src="images/verk-09.jpg" alt="Strömmande själafloden" class="collage-1">
+                    <img src="images/verk-05.jpg" alt="Ilska, hat och kärlek" class="collage-2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="kontakt">
+        <div class="contact-inner reveal">
+            <p class="section-label">Intresserad?</p>
+            <h2 class="contact-title">Hör av dig</h2>
+            <p class="contact-desc">Vill du veta mer om ett verk, diskutera ett köp eller bara prata konst? Tveka inte att höra av dig.</p>
+            <div class="contact-info">
+                <a href="tel:+46763069194" class="contact-link">
+                    <span class="contact-icon">&#9742;</span>
+                    <span>076-306 91 94</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Nils Hallgren. Alla rättigheter förbehållna.</p>
+    </footer>
+
+    <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
         <button class="lightbox-close" id="lightbox-close" aria-label="Stäng">&times;</button>
         <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Föregående">&#8249;</button>
@@ -29,10 +109,6 @@
             <p class="lightbox-title" id="lightbox-title"></p>
         </div>
     </div>
-
-    <footer>
-        <p>Vid intresse, kontakta Nils Hallgren</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>

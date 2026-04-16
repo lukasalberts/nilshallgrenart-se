@@ -18,19 +18,69 @@ const artworks = [
     { src: "images/verk-17.jpg", title: "Solnedgången till Johanna" }
 ];
 
+// Hero background — use a random artwork
+const heroImg = new Image();
+const heroIdx = Math.floor(Math.random() * artworks.length);
+heroImg.onload = () => {
+    document.getElementById("hero-bg").style.backgroundImage = `url(${artworks[heroIdx].src})`;
+};
+heroImg.src = artworks[heroIdx].src;
+
+// Subtle parallax on hero
+window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const hero = document.getElementById("hero-bg");
+    if (scrollY < window.innerHeight) {
+        hero.style.transform = `translateY(${scrollY * 0.3}px)`;
+    }
+});
+
+// Sticky nav background on scroll
+const nav = document.getElementById("nav");
+window.addEventListener("scroll", () => {
+    nav.classList.toggle("scrolled", window.scrollY > 80);
+});
+
 // Build gallery
 const gallery = document.getElementById("gallery");
 artworks.forEach((art, i) => {
     const item = document.createElement("div");
     item.className = "gallery-item";
-    item.style.animationDelay = `${i * 0.08}s`;
     item.innerHTML = `
         <img src="${art.src}" alt="${art.title}" loading="lazy">
-        <p class="item-title">${art.title}</p>
+        <div class="item-overlay">
+            <p class="item-title">${art.title}</p>
+        </div>
     `;
     item.addEventListener("click", () => openLightbox(i));
     gallery.appendChild(item);
 });
+
+// Scroll reveal — IntersectionObserver
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+// Gallery items staggered reveal
+const galleryObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add("visible");
+            }, i * 80);
+            galleryObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll(".gallery-item").forEach(el => galleryObserver.observe(el));
 
 // Lightbox
 const lightbox = document.getElementById("lightbox");
@@ -75,4 +125,27 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeLightbox();
     if (e.key === "ArrowLeft") navigate(-1);
     if (e.key === "ArrowRight") navigate(1);
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute("href"));
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+});
+
+// Touch swipe for lightbox
+let touchStartX = 0;
+lightbox.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+lightbox.addEventListener("touchend", (e) => {
+    const diff = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(diff) > 50) {
+        navigate(diff > 0 ? -1 : 1);
+    }
 });
