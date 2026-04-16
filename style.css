@@ -316,7 +316,17 @@ nav.scrolled {
     overflow: hidden;
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.gallery-item:nth-child(3n+1) { border-radius: 12px 4px 12px 4px; }
+.gallery-item:nth-child(3n+2) { border-radius: 4px 12px 4px 12px; }
+.gallery-item:nth-child(3n)   { border-radius: 8px 16px 8px 16px; }
+
+.gallery-item:hover {
+    box-shadow: 0 8px 35px rgba(0,0,0,0.15);
 }
 
 .gallery-item.visible {
