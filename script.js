@@ -21,10 +21,11 @@ const artworks = [
 // Hero background — use a random artwork
 const heroImg = new Image();
 const heroIdx = Math.floor(Math.random() * artworks.length);
+const heroIdxPath = artworks[heroIdx].full.replace(".webp", "-hero.webp");
 heroImg.onload = () => {
-    document.getElementById("hero-bg").style.backgroundImage = `url(${artworks[heroIdx].full})`;
+    document.getElementById("hero-bg").style.backgroundImage = `url(${heroIdxPath})`;
 };
-heroImg.src = artworks[heroIdx].full;
+heroImg.src = heroIdxPath;
 
 // Subtle parallax on hero
 window.addEventListener("scroll", () => {
@@ -47,7 +48,7 @@ artworks.forEach((art, i) => {
     const item = document.createElement("div");
     item.className = "gallery-item";
     item.innerHTML = `
-        <img src="${art.thumb}" alt="${art.title}" loading="lazy">
+        <img src="${art.thumb}" alt="${art.title}" width="600" height="800" loading="lazy">
         <div class="item-overlay">
             <p class="item-title">${art.title}</p>
             <span class="item-sold">Såld</span>
